@@ -3,6 +3,11 @@
   src: url("../public/gc-gambio-font-1767934241-0/GC-Gambio-Demo-BF695fda10c0d7b.ttf");
   font-display: swap;
 }
+@font-face {
+  font-family: "Gridbit";
+  src: url("../public/it-gridbit-font-1767934336-0/ItGridbitDemoRegular-6RPjA.otf");
+  font-display: swap;
+}
 :root {
   /* Backgrounds */
   --bg-app: #191919;
@@ -60,6 +65,10 @@ body {
   background: var(--bg-hover);
   color: var(--text-primary);
 }
+.sidebar-item:active {
+  background: var(--accent);
+  color: var(--text-primary);
+}
 
 .main-section {
   padding: 1.25rem;
@@ -72,9 +81,7 @@ body {
   margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
-  /* temporary fallback color */
   background: var(--bg-surface);
-  /* when image is added */
   background-size: cover;
   background-position: center;
 }
@@ -92,12 +99,14 @@ body {
   left: 1.25rem;
   z-index: 1;
 }
-
 .banner-content h1 {
   font-size: 1.6rem;
   font-weight: 600;
 }
-
+.banner-content h1 span {
+  font-family: "Gridbit", "Gambio", sans-serif;
+  font-size: 1.8rem;
+}
 .banner-content p {
   margin-top: 0.25rem;
   font-size: 0.9rem;

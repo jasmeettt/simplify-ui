@@ -5,6 +5,12 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Gridbit";
+    src: url("../public/it-gridbit-font-1767934336-0/ItGridbitDemoRegular-6RPjA.otf");
+    font-display: swap;
+}
+
 
 // Design Tokens 
 
@@ -96,11 +102,7 @@ body {
     margin-bottom: 1.5rem;
     position: relative;
     overflow: hidden;
-
-    /* temporary fallback color */
     background: var(--bg-surface);
-
-    /* when image is added */
     background-size: cover;
     background-position: center;
 }
@@ -118,18 +120,24 @@ body {
     bottom: 1.25rem;
     left: 1.25rem;
     z-index: 1;
+
+    & h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+
+        span {
+            font-family: "Gridbit", "Gambio", sans-serif;
+            font-size: 1.8rem;
+        }
+    }
+
+    & p {
+        margin-top: 0.25rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
 }
 
-.banner-content h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-.banner-content p {
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
 
 
 // Page Content
@@ -141,11 +149,11 @@ body {
 
 
 @media (max-width: 768px) {
-  .wrapper {
-    grid-template-columns: 1fr;
-  }
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
 
-  .sidebar {
-    display: none;
-  }
+    .sidebar {
+        display: none;
+    }
 }
