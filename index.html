@@ -11,29 +11,89 @@
       type="image/x-icon"
     />
   </head>
+
   <body>
     <div class="wrapper">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="sidebar-heading">Simplify</div>
-        <div class="sidebar-item">Todo</div>
+        <div class="sidebar-heading">Simplify.</div>
+        <div class="sidebar-item">Dashboard</div>
       </aside>
 
       <!-- Main content -->
       <main class="main-section">
-        <!-- Banner / Cover -->
+        <!-- Banner -->
         <header class="banner">
           <div class="banner-image">
-            <img src="./public/images/Urban Serenity Scene.png" alt="banner-image" />
+            <img
+              src="./public/images/Urban Serenity Scene.png"
+              alt="Banner background"
+            />
           </div>
+
           <div class="banner-content">
-            <h1>Good morning <span class="user"> Jasmeet</span>👋</h1>
+            <h1>Good morning <span class="user">Jasmeet</span> 👋</h1>
             <p>Monday, September 18</p>
           </div>
         </header>
 
-        <!-- Rest of the content -->
-        <section class="content">hello</section>
+        <!-- Cards -->
+        <section class="content">
+          <!-- Pomodoro -->
+          <article class="content-item pomodoro" id="1">
+            <div class="card-media">
+              <img
+                src="./public/images/pomodoro-timer.jpg"
+                alt="Pomodoro timer"
+              />
+              <h3>Pomodoro</h3>
+            </div>
+          </article>
+
+          <!-- Daily Planner -->
+          <article class="content-item daily-planner" id="2">
+            <div class="card-media">
+              <img
+                src="./public/images/Stylized Woman with Smartphone.png"
+                alt="Daily planner"
+              />
+              <h3>Daily Planner</h3>
+            </div>
+          </article>
+
+          <!-- Motivation -->
+          <article class="content-item motivation" id="3">
+            <div class="card-media">
+              <img
+                src="./public/images/Minimalist Quote Design.png"
+                alt="Motivation"
+              />
+              <h3>Motivation</h3>
+            </div>
+          </article>
+
+          <!-- Todo List -->
+          <article class="content-item todo-list" id="4">
+            <div class="card-media">
+              <img
+                src="./public/images/Beige Tote Bag Display.png"
+                alt="Todo list"
+              />
+              <h3>Todo List</h3>
+            </div>
+          </article>
+
+          <!-- Daily Goals -->
+          <article class="content-item daily-goals" id="5">
+            <div class="card-media">
+              <img
+                src="./public/images/Abstract Wavy Design.png"
+                alt="Daily goals"
+              />
+              <h3>Daily Goals</h3>
+            </div>
+          </article>
+        </section>
       </main>
     </div>
   </body>
