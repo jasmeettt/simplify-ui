@@ -60,6 +60,11 @@ body {
   -webkit-text-decoration: underline var(--accent);
           text-decoration: underline var(--accent);
   font-size: 1.6rem;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+.sidebar .sidebar-heading:active {
+  transform: scale(0.97);
 }
 .sidebar .sidebar-nav {
   margin-top: 1.5rem;
@@ -85,6 +90,7 @@ body {
   cursor: pointer;
   transition: all ease 0.2s;
   border-radius: 6px;
+  border: 1px solid transparent;
 }
 .sidebar .sidebar-nav .sidebar-item:hover {
   background: var(--bg-hover);
@@ -93,6 +99,11 @@ body {
 .sidebar .sidebar-nav .sidebar-item:active {
   background: var(--accent-soft);
   color: var(--accent);
+}
+.sidebar .sidebar-nav .sidebar-item:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
 .main-section {

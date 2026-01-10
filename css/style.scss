@@ -73,6 +73,12 @@ body {
         font-family: "Gridbit", "Gambio", sans-serif;
         text-decoration: underline var(--accent);
         font-size: 1.6rem;
+        cursor: pointer;
+        transition: all ease 0.5s;
+
+        &:active {
+            transform: scale(0.97);
+        }
     }
 
     .sidebar-nav {
@@ -99,14 +105,20 @@ body {
             cursor: pointer;
             transition: all ease 0.2s;
             border-radius: 6px;
+            border: 1px solid transparent;
 
-            &:hover{
+            &:hover {
                 background: var(--bg-hover);
                 color: var(--text-primary);
             }
-            &:active{
+            &:active {
                 background: var(--accent-soft);
                 color: var(--accent);
+            }
+            &:focus-visible {
+                outline: none;
+                border-color: var(--accent);
+                box-shadow: 0 0 0 2px var(--accent-soft);
             }
         }
     }
