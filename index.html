@@ -10,14 +10,38 @@
       href="./public/images/mainLogo.jpg"
       type="image/x-icon"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <div class="wrapper">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="sidebar-heading">Simplify.</div>
-        <div class="sidebar-item">Dashboard</div>
+        <div class="sidebar-heading" data-target="dashboard">Simplify.</div>
+
+        <nav class="sidebar-nav">
+          <p class="sidebar-label">MAIN.</p>
+          <button class="sidebar-item active" data-target="dashboard">
+            Dashboard
+          </button>
+
+          <p class="sidebar-label">APPS.</p>
+          <button class="sidebar-item" data-target="pomodoro">Pomodoro</button>
+          <button class="sidebar-item" data-target="planner">
+            Daily Planner
+          </button>
+          <button class="sidebar-item" data-target="motivation">
+            Motivation
+          </button>
+          <button class="sidebar-item" data-target="todo">Todo</button>
+          <button class="sidebar-item" data-target="goals">Daily Goals</button>
+
+          <p class="sidebar-label">OTHER.</p>
+          <button class="sidebar-item" data-target="settings">Settings</button>
+        </nav>
       </aside>
 
       <!-- Main content -->
@@ -39,62 +63,75 @@
 
         <!-- Cards -->
         <section class="content">
-          <!-- Pomodoro -->
-          <article class="content-item pomodoro" id="1">
+          <article class="content-item pomodoro" data-target="pomodoro">
             <div class="card-media">
-              <img
-                src="./public/images/pomodoro-timer.jpg"
-                alt="Pomodoro timer"
-              />
+              <img src="./public/images/pomodoro-timer.jpg" />
               <h3>Pomodoro</h3>
             </div>
           </article>
 
-          <!-- Daily Planner -->
-          <article class="content-item daily-planner" id="2">
+          <article class="content-item daily-planner" data-target="planner">
             <div class="card-media">
-              <img
-                src="./public/images/Stylized Woman with Smartphone.png"
-                alt="Daily planner"
-              />
+              <img src="./public/images/Stylized Woman with Smartphone.png" />
               <h3>Daily Planner</h3>
             </div>
           </article>
 
-          <!-- Motivation -->
-          <article class="content-item motivation" id="3">
+          <article class="content-item motivation" data-target="motivation">
             <div class="card-media">
-              <img
-                src="./public/images/Minimalist Quote Design.png"
-                alt="Motivation"
-              />
+              <img src="./public/images/Minimalist Quote Design.png" />
               <h3>Motivation</h3>
             </div>
           </article>
 
-          <!-- Todo List -->
-          <article class="content-item todo-list" id="4">
+          <article class="content-item todo-list" data-target="todo">
             <div class="card-media">
-              <img
-                src="./public/images/Beige Tote Bag Display.png"
-                alt="Todo list"
-              />
+              <img src="./public/images/Beige Tote Bag Display.png" />
               <h3>Todo List</h3>
             </div>
           </article>
 
-          <!-- Daily Goals -->
-          <article class="content-item daily-goals" id="5">
+          <article class="content-item daily-goals" data-target="goals">
             <div class="card-media">
-              <img
-                src="./public/images/Abstract Wavy Design.png"
-                alt="Daily goals"
-              />
+              <img src="./public/images/Abstract Wavy Design.png" />
               <h3>Daily Goals</h3>
             </div>
           </article>
         </section>
+
+        <!-- Full Pages -->
+        <article class="full-page" data-page="pomodoro">
+          <button class="back-btn">
+            <i class="ri-arrow-left-fill"></i> Dashboard
+          </button>
+          <h3>Pomodoro</h3>
+        </article>
+        <article class="full-page" data-page="planner">
+          <button class="back-btn">
+            <i class="ri-arrow-left-fill"></i> Dashboard
+          </button>
+          <h3>Daily Planner</h3>
+        </article>
+        <article class="full-page" data-page="motivation">
+          <button class="back-btn">
+            <i class="ri-arrow-left-fill"></i> Dashboard
+          </button>
+          <h3>Motivation</h3>
+        </article>
+        <article class="full-page" data-page="todo">
+          <button class="back-btn">
+            <i class="ri-arrow-left-fill"></i> Dashboard
+          </button>
+          <h3>Todo Page</h3>
+        </article>
+        <article class="full-page" data-page="goals">
+          <button class="back-btn">
+            <i class="ri-arrow-left-fill"></i> Dashboard
+          </button>
+          <h3>Daily Goals</h3>
+        </article>
       </main>
     </div>
+    <script src="app.js" defer></script>
   </body>
 </html>

@@ -61,15 +61,38 @@ body {
           text-decoration: underline var(--accent);
   font-size: 1.6rem;
 }
-.sidebar .sidebar-item {
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  cursor: pointer;
-  color: var(--text-secondary);
+.sidebar .sidebar-nav {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
-.sidebar .sidebar-item:hover {
+.sidebar .sidebar-nav .sidebar-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin: 1rem 0 0.25rem;
+  font-family: "Gridbit";
+  -webkit-text-decoration: underline var(--accent);
+          text-decoration: underline var(--accent);
+}
+.sidebar .sidebar-nav .sidebar-item {
+  background: transparent;
+  border: none;
+  text-align: start;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all ease 0.2s;
+  border-radius: 6px;
+}
+.sidebar .sidebar-nav .sidebar-item:hover {
   background: var(--bg-hover);
   color: var(--text-primary);
+}
+.sidebar .sidebar-nav .sidebar-item:active {
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .main-section {
@@ -128,14 +151,14 @@ body {
   border-radius: 8px;
   min-height: 180px;
   will-change: transform;
-  transition: all 0.5s ease;
+  transition: all 0.15s ease;
   cursor: pointer;
 }
 .content .content-item:hover {
   background: var(--bg-hover);
 }
 .content .content-item:active {
-  transform: scale(0.977);
+  transform: scale(0.97);
 }
 .content .content-item:focus-within {
   outline: 2px solid var(--accent-soft);
@@ -156,6 +179,40 @@ body {
   position: absolute;
   bottom: 5%;
   left: 5%;
+}
+
+.full-page {
+  display: none;
+  padding: 2rem;
+  background: var(--bg-app);
+  min-height: 300px;
+  position: relative;
+}
+.full-page .back-btn {
+  font-family: "Gridbit", sans-serif;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+.full-page .back-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.full-page .back-btn:active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.full-page .back-btn:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
 @media (max-width: 768px) {
