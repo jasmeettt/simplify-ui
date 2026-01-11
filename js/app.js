@@ -1,3 +1,5 @@
+import {todo} from './todo.js'
+// console.log(todo)
 const contentSection = document.querySelector(".content");
 const bannerSection = document.querySelector(".banner");
 const contentItem = document.querySelectorAll(".content-item");

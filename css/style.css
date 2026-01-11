@@ -48,6 +48,7 @@ body {
   display: grid;
   grid-template-columns: 260px 1fr;
   min-height: 100vh;
+  height: 100%;
 }
 
 .sidebar {
@@ -183,6 +184,7 @@ body {
 .content .content-item .card-media img {
   width: 100%;
   max-height: 160px;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
