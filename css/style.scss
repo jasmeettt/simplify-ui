@@ -273,8 +273,131 @@ body {
         }
     }
 
-    
+    .todo {
+        // background: red;
+        // height: auto;
+        // min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        max-width: 420px;
+        margin: 0 auto;
+        gap: 1rem;
+
+        .todo-day {
+            // background: var(--bg-surface);
+            background: transparent;
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            // display: flex;
+            // flex-direction: column;
+
+            .day-header {
+                h2 {
+                    font-size: 1.4rem;
+                    font-family: "Gridbit";
+                    letter-spacing: 0.08em;
+                    font-weight: 700;
+                }
+                p {
+                    font-size: 0.8rem;
+                    margin-top: 0.25rem;
+                    color: var(--text-muted);
+                    font-weight: 700;
+                }
+            }
+            .task-list {
+                // background-color: yellow;
+                margin-top: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+
+                .task {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    justify-content: space-between;
+                    // max-width: 320px;
+                    font-size: 0.9rem;
+
+                    .check-n-task {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex: 1;
+                    }
+
+                    .task-text {
+                        line-height: 1.3;
+                    }
+
+                    .delete {
+                        cursor: pointer;
+                        // color: var(--text-muted);
+                        opacity: 0.6;
+                        transition:
+                            opacity 0.15s ease,
+                            scale 0.4s ease-in;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+
+                    input[type="checkbox"] {
+                        accent-color: var(--accent);
+                        outline: none;
+                        border: 1px solid var(--accent);
+                        background: transparent;
+                    }
+                }
+            }
+
+            .add-task-btn {
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+                margin-top: 0.75rem;
+                cursor: pointer;
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                transition:
+                    color 0.15s ease,
+                    transform 0.1s ease;
+
+                i {
+                    font-size: 1rem;
+                }
+
+                &:hover {
+                    color: var(--accent);
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+        }
+    }
 }
+
+//temporary
+// body.dev-todo .banner,
+// body.dev-todo .content {
+//     display: none !important;
+// }
+
+// body.dev-todo .full-page {
+//     display: none;
+// }
+
+// body.dev-todo .full-page.todo-list {
+//     display: block;
+// }
 
 @media (max-width: 768px) {
     .wrapper {
