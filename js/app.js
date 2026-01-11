@@ -59,3 +59,4 @@ backBtn.forEach((btn) => {
 sidebarHeading.addEventListener("click", ()=>{
     showView("dashboard")
 })
+
