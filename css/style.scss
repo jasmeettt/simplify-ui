@@ -363,8 +363,8 @@ body {
                     }
 
                     &.completed .task-text {
-                        text-decoration: line-through var(--accent);
-                        opacity: 0.6;
+                        text-decoration: 2px line-through var(--accent);
+                        opacity: 0.8;
                     }
                 }
             }

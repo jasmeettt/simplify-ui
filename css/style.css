@@ -296,9 +296,9 @@ body {
   background: transparent;
 }
 .full-page .todo .todo-day .task-list .task.completed .task-text {
-  -webkit-text-decoration: line-through var(--accent);
-          text-decoration: line-through var(--accent);
-  opacity: 0.6;
+  -webkit-text-decoration: 2px line-through var(--accent);
+          text-decoration: 2px line-through var(--accent);
+  opacity: 0.8;
 }
 .full-page .todo .todo-day .add-task-btn {
   display: flex;
