@@ -23,10 +23,10 @@
   --accent: #3b82f6;
   --accent-soft: rgba(59, 130, 246, 0.15);
   /* Status colors (Notion-style) */
-  --success: #4ade80; /* muted green */
-  --success-soft: rgba(74, 222, 128, 0.15);
-  --danger: #f87171; /* muted red */
-  --danger-soft: rgba(248, 113, 113, 0.15);
+  --success: #22c55e; /* green */
+  --success-soft: rgba(34, 197, 94, 0.15);
+  --danger: #ef4444; /* red */
+  --danger-soft: rgba(239, 68, 68, 0.15);
 }
 
 * {
@@ -295,6 +295,11 @@ body {
   border: 1px solid var(--accent);
   background: transparent;
 }
+.full-page .todo .todo-day .task-list .task.completed .task-text {
+  -webkit-text-decoration: line-through var(--accent);
+          text-decoration: line-through var(--accent);
+  opacity: 0.6;
+}
 .full-page .todo .todo-day .add-task-btn {
   display: flex;
   align-items: center;
@@ -369,6 +374,9 @@ body {
 }
 .full-page .todo .todo-day .add-task-input .check-cross .cross:active {
   transform: scale(0.95);
+}
+.full-page .todo .todo-day .hidden {
+  display: none;
 }
 
 body.dev-todo .banner,
