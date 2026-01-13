@@ -30,6 +30,14 @@
     /* Accent (very limited) */
     --accent: #3b82f6;
     --accent-soft: rgba(59, 130, 246, 0.15);
+
+    /* Status colors (Notion-style) */
+  
+    --success: #4ade80;                 /* muted green */
+    --success-soft: rgba(74, 222, 128, 0.15);
+
+    --danger: #f87171;                  /* muted red */
+    --danger-soft: rgba(248, 113, 113, 0.15);
 }
 
 // Reset
@@ -356,7 +364,6 @@ body {
                     }
                 }
             }
-
             .add-task-btn {
                 display: flex;
                 align-items: center;
@@ -381,23 +388,94 @@ body {
                     transform: translateY(1px);
                 }
             }
+            .add-task-input {
+                margin-top: 0.6rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.6rem;
+
+                input {
+                    flex: 1;
+                    // width: 100%;
+                    background: transparent;
+                    border: 1px solid var(--border-subtle);
+                    border-radius: 6px;
+                    padding: 0.4rem 0.6rem;
+                    color: var(--text-primary);
+                    font-size: 0.85rem;
+
+                    &::placeholder {
+                        color: var(--text-muted);
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: var(--accent);
+                    }
+                }
+
+                .check-cross {
+                    display: flex;
+                    gap: 0.35rem;
+
+                    .check {
+                        background: var(--success);
+                        padding: 0.35rem;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition:
+                            background ease 0.15s,
+                            transform 0.1s ease;
+
+                        &:hover {
+                            background: var(--success-soft);
+                        }
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+                    .cross {
+                        background: var(--danger);
+                        padding: 0.35rem;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition:
+                            background 0.15s ease,
+                            transform 0.1s ease;
+
+                        &:hover {
+                            background: var(--danger-soft);
+                        }
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+                    // padding: 0.4rem 0.6rem;
+                    // background-color: #3b82f6;
+                }
+            }
+
+            // .hidden {
+            //     display: none;
+            // }
         }
     }
 }
 
 //temporary
-// body.dev-todo .banner,
-// body.dev-todo .content {
-//     display: none !important;
-// }
+body.dev-todo .banner,
+body.dev-todo .content {
+    display: none !important;
+}
 
-// body.dev-todo .full-page {
-//     display: none;
-// }
+body.dev-todo .full-page {
+    display: none;
+}
 
-// body.dev-todo .full-page.todo-list {
-//     display: block;
-// }
+body.dev-todo .full-page.todo-list {
+    display: block;
+}
 
 @media (max-width: 768px) {
     .wrapper {

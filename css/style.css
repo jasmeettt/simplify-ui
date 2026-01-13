@@ -22,6 +22,11 @@
   /* Accent (very limited) */
   --accent: #3b82f6;
   --accent-soft: rgba(59, 130, 246, 0.15);
+  /* Status colors (Notion-style) */
+  --success: #4ade80; /* muted green */
+  --success-soft: rgba(74, 222, 128, 0.15);
+  --danger: #f87171; /* muted red */
+  --danger-soft: rgba(248, 113, 113, 0.15);
 }
 
 * {
@@ -308,6 +313,75 @@ body {
 }
 .full-page .todo .todo-day .add-task-btn:active {
   transform: translateY(1px);
+}
+.full-page .todo .todo-day .add-task-input {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.full-page .todo .todo-day .add-task-input input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+.full-page .todo .todo-day .add-task-input input::-moz-placeholder {
+  color: var(--text-muted);
+}
+.full-page .todo .todo-day .add-task-input input::placeholder {
+  color: var(--text-muted);
+}
+.full-page .todo .todo-day .add-task-input input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.full-page .todo .todo-day .add-task-input .check-cross {
+  display: flex;
+  gap: 0.35rem;
+}
+.full-page .todo .todo-day .add-task-input .check-cross .check {
+  background: var(--success);
+  padding: 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background ease 0.15s, transform 0.1s ease;
+}
+.full-page .todo .todo-day .add-task-input .check-cross .check:hover {
+  background: var(--success-soft);
+}
+.full-page .todo .todo-day .add-task-input .check-cross .check:active {
+  transform: scale(0.95);
+}
+.full-page .todo .todo-day .add-task-input .check-cross .cross {
+  background: var(--danger);
+  padding: 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.full-page .todo .todo-day .add-task-input .check-cross .cross:hover {
+  background: var(--danger-soft);
+}
+.full-page .todo .todo-day .add-task-input .check-cross .cross:active {
+  transform: scale(0.95);
+}
+
+body.dev-todo .banner,
+body.dev-todo .content {
+  display: none !important;
+}
+
+body.dev-todo .full-page {
+  display: none;
+}
+
+body.dev-todo .full-page.todo-list {
+  display: block;
 }
 
 @media (max-width: 768px) {
