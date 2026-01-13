@@ -23,18 +23,18 @@ export const todo = () => {
 
     const btn = day.querySelector(".add-task-btn");
     const inputBox = day.querySelector(".add-task-input");
-    const input = day.querySelector("input");
+    const input = day.querySelector(".add-task-input input");
 
     btn.classList.add("hidden");
     inputBox.classList.remove("hidden");
     input.focus();
 
-    input.onkeydown = (e) => {
+    input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && input.value.trim() !== "") {
         addTask(day, input.value.trim());
         closeAddMode(day);
       }
-    };
+    });
   }
 
   function closeAddMode(day) {
@@ -47,5 +47,21 @@ export const todo = () => {
     input.value = "";
 
     activeAddDay = null;
+  }
+
+  function addTask(day, text) {
+    const taskList = day.querySelector(".task-list");
+
+    const li = document.createElement("li");
+    li.className = "task";
+
+    li.innerHTML = `<div class="check-n-task">
+                    <input type="checkbox" />
+                  <span class="task-text">
+                    ${text}
+                  </span>
+                  </div>`;
+
+    taskList.appendChild(li);
   }
 };
