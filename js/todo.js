@@ -89,8 +89,8 @@ export const todo = () => {
         task.remove();
         return;
       }
-      if(e.target.matches("input[type = 'checkbox'")){
-        task.classList.toggle("completed", e.target.checked)
+      if (e.target.matches("input[type = 'checkbox'")) {
+        task.classList.toggle("completed", e.target.checked);
       }
       // if(e.)
       // console.log(e.target.closest(".task"));
