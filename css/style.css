@@ -379,6 +379,19 @@ body {
   display: none;
 }
 
+body.dev-todo .banner,
+body.dev-todo .content {
+  display: none !important;
+}
+
+body.dev-todo .full-page {
+  display: none;
+}
+
+body.dev-todo .full-page.todo-list {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
