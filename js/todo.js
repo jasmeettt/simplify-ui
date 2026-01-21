@@ -1,4 +1,28 @@
 export const todo = () => {
+  const planner = {
+    monday: [
+      {
+        id: crypto.randomUUID(),
+        task: "get up",
+        completed: false,
+      },
+      {
+        id: crypto.randomUUID(),
+        task: "sing a song",
+        completed: false,
+      },
+      {
+        id: crypto.randomUUID(),
+        task: "do sit up",
+        completed: false,
+      },
+    ],
+    tuesday: [],
+    wednesday:[],
+  };
+
+  planner.monday.forEach(e => console.log(e))
+
   let activeAddDay = null;
 
   const addButtons = document.querySelectorAll(".add-task-btn");
