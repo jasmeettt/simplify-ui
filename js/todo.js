@@ -18,10 +18,10 @@ export const todo = () => {
       },
     ],
     tuesday: [],
-    wednesday:[],
+    wednesday: [],
   };
 
-  planner.monday.forEach(e => console.log(e))
+  planner.monday.forEach((e) => console.log(e));
 
   let activeAddDay = null;
 
@@ -32,6 +32,7 @@ export const todo = () => {
       //   console.log(btn);
       const day = btn.closest(".todo-day");
       console.log(day);
+      console.log(day.dataset.day);
 
       if (activeAddDay && activeAddDay !== day) {
         closeAddMode(activeAddDay);
@@ -85,6 +86,7 @@ export const todo = () => {
 
     const li = document.createElement("li");
     li.className = "task";
+    console.log(day.dataset.day)
 
     li.innerHTML = `<div class="check-n-task">
                     <input type="checkbox" />

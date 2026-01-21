@@ -1,5 +1,4 @@
-import {todo} from './todo.js'
-todo()
+import { todo } from "./todo.js";
 const contentSection = document.querySelector(".content");
 const bannerSection = document.querySelector(".banner");
 const contentItem = document.querySelectorAll(".content-item");
@@ -58,7 +57,8 @@ backBtn.forEach((btn) => {
   });
 });
 
-sidebarHeading.addEventListener("click", ()=>{
-    showView("dashboard")
-})
+sidebarHeading.addEventListener("click", () => {
+  showView("dashboard");
+});
 
+todo();
