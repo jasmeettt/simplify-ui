@@ -21,18 +21,24 @@ export const todo = () => {
     wednesday: [],
   };
 
-  planner.monday.forEach((e) => console.log(e));
-
   let activeAddDay = null;
 
-  const addButtons = document.querySelectorAll(".add-task-btn");
+  // todo day -initial render
+  const todoDay = document.querySelectorAll(".todo-day");
+  todoDay.forEach((day) => {
+    const dayName = day.dataset.day;
+    renderTask(dayName, day);
+    // console.log(day);
+  });
 
+  // add button
+  const addButtons = document.querySelectorAll(".add-task-btn");
   addButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      //   console.log(btn);
       const day = btn.closest(".todo-day");
-      console.log(day);
-      console.log(day.dataset.day);
+      // console.log(btn);
+      // console.log(day);
+      // console.log(day.dataset.day);
 
       if (activeAddDay && activeAddDay !== day) {
         closeAddMode(activeAddDay);
@@ -42,9 +48,10 @@ export const todo = () => {
     });
   });
 
+  //openAddMode function
   function openAddMode(day) {
-    // console.log(day)
     activeAddDay = day;
+    // console.log(day)
 
     const btn = day.querySelector(".add-task-btn");
     const inputBox = day.querySelector(".add-task-input");
@@ -53,21 +60,9 @@ export const todo = () => {
     btn.classList.add("hidden");
     inputBox.classList.remove("hidden");
     input.focus();
-
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && input.value.trim() !== "") {
-        addTask(day, input.value.trim());
-        closeAddMode(day);
-      }
-    });
-
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeAddMode(day);
-      }
-    });
   }
 
+  //closeAddMode function
   function closeAddMode(day) {
     const btn = day.querySelector(".add-task-btn");
     const inputBox = day.querySelector(".add-task-input");
@@ -76,50 +71,121 @@ export const todo = () => {
     btn.classList.remove("hidden");
     inputBox.classList.add("hidden");
     input.value = "";
-
     activeAddDay = null;
   }
 
-  function addTask(day, text) {
-    const taskList = day.querySelector(".task-list");
-    const input = day.querySelector(".add-task-input input");
-
-    const li = document.createElement("li");
-    li.className = "task";
-    console.log(day.dataset.day)
-
-    li.innerHTML = `<div class="check-n-task">
-                    <input type="checkbox" />
-                  <span class="task-text">
-                    ${text}
-                  </span>
-                  </div>
-                   <i class="ri-delete-bin-5-fill delete"></i>
-                  `;
-
-    taskList.appendChild(li);
-
-    input.value = "";
+  // addTask
+  function addTask(dayName, text) {
+    // const taskList = day.querySelector(".task-list");
+    // const input = day.querySelector(".add-task-input input");
+    // const li = document.createElement("li");
+    // li.className = "task";
+    // console.log(day.dataset.day);
+    planner[dayName].push({
+      id: crypto.randomUUID(),
+      task: text,
+      completed: false,
+    });
+  }
+  //deleting the task
+  function deleteTask(dayName, id) {
+    planner[dayName] = planner[dayName].filter((t) => t.id !== id);
   }
 
-  //looping through tasklist to add practicality to delete and checkbox
-  const taskList = document.querySelectorAll(".task-list");
-  // console.log(taskList)
-  taskList.forEach((list) => {
-    // console.log(list)
-    list.addEventListener("click", (e) => {
-      const task = e.target.closest(".task");
-      if (!task) return;
+  function toggleTask(dayName, id) {
+    const task = planner[dayName].find((t) => t.id === id);
+    if (task) task.completed = !task.completed;
+  }
 
-      if (e.target.classList.contains("delete")) {
-        task.remove();
-        return;
-      }
-      if (e.target.matches("input[type = 'checkbox'")) {
-        task.classList.toggle("completed", e.target.checked);
-      }
-      // if(e.)
-      // console.log(e.target.closest(".task"));
+  function renderTask(dayName, dayEl) {
+    // console.log(dayEl);
+    // console.log(dayName);
+    const taskList = dayEl.querySelector(".task-list");
+    // console.log(taskList);
+    taskList.innerHTML = "";
+
+    planner[dayName].forEach((task) => {
+      const li = document.createElement("li");
+      li.className = "task";
+      li.dataset.id = task.id;
+
+      if (task.completed) li.classList.add("completed");
+
+      li.innerHTML = `
+      <div class="check-n-task">
+      <input type = "checkbox" ${task.completed ? "checked" : ""} />
+      <span class="task-text">${task.task}</span>
+      </div>
+      <i class="ri-delete-bin-5-fill delete"></i>
+`;
+
+      taskList.appendChild(li);
+      console.log(task);
     });
-  });
+  }
 };
+
+//looping through tasklist to add practicality to delete and checkbox
+// const taskList = document.querySelectorAll(".task-list");
+// console.log(taskList)
+//   taskList.forEach((list) => {
+//     // console.log(list)
+//     list.addEventListener("click", (e) => {
+//       const task = e.target.closest(".task");
+//       if (!task) return;
+
+//       if (e.target.classList.contains("delete")) {
+//         task.remove();
+//         return;
+//       }
+//       if (e.target.matches("input[type = 'checkbox'")) {
+//         task.classList.toggle("completed", e.target.checked);
+//       }
+//       // if(e.)
+//       // console.log(e.target.closest(".task"));
+//     });
+//   });
+// };
+
+// const check = day.querySelector(".check");
+//     const cross = day.querySelector(".cross");
+
+//     if (check) {
+//       check.addEventListener("click", () => {
+//         if (input.value.trim()) {
+//           addTask(day, input.value.trim());
+//         }
+//         closeAddMode(day);
+//       });
+//     }
+
+//     if (cross) {
+//       cross.addEventListener("click", () => {
+//         closeAddMode(day);
+//       });
+//     }
+// input.addEventListener("keydown", (e) => {
+//       if (e.key === "Enter" && input.value.trim() !== "") {
+//         addTask(day, input.value.trim());
+//         closeAddMode(day);
+//       }
+//     });
+
+//     input.addEventListener("keydown", (e) => {
+//       if (e.key === "Escape") {
+//         closeAddMode(day);
+//       }
+//     });
+
+//  li.innerHTML = `<div class="check-n-task">
+//                     <input type="checkbox" />
+//                   <span class="task-text">
+//                     ${text}
+//                   </span>
+//                   </div>
+//                    <i class="ri-delete-bin-5-fill delete"></i>
+//                   `;
+
+//     taskList.appendChild(li);
+
+//     input.value = "";
