@@ -26,7 +26,7 @@ export const todo = () => {
   // todo day -initial render
   const todoDay = document.querySelectorAll(".todo-day");
   todoDay.forEach((day) => {
-    const dayName = day.dataset.day;
+    const dayName = day.dataset.day.toLowerCase();
     renderTask(dayName, day);
     // console.log(day);
   });
@@ -120,9 +120,69 @@ export const todo = () => {
 `;
 
       taskList.appendChild(li);
-      console.log(task);
+      // console.log(task);
     });
   }
+
+  //other events when clicked(check,cross,keywords)
+  document.addEventListener("click", (e) => {
+    // console.log(e.target.closest(".todo-day"));
+    const day = e.target.closest(".todo-day");
+    if (!day) return;
+
+    const dayName = day.dataset.day.toLowerCase();
+    // console.log(dayName);
+
+    //check
+    if (e.target.classList.contains("check")) {
+      const input = day.querySelector(".add-task-input input");
+      if (input.value.trim()) {
+        addTask(dayName, input.value.trim());
+        renderTask(dayName, day);
+      }
+      closeAddMode(day);
+    }
+
+    //cross
+    if (e.target.classList.contains("cross")) {
+      closeAddMode(day);
+    }
+
+    //delete
+    if (e.target.classList.contains("delete")) {
+      const taskEl = e.target.closest(".task");
+      deleteTask(dayName, taskEl.dataset.id);
+      renderTask(dayName, day);
+    }
+  });
+
+  document.addEventListener("change", (e) => {
+    if (e.target.type !== "checkbox") return;
+
+    const taskEl = e.target.closest(".task");
+    const day = e.target.closest(".todo-day");
+    const dayName = day.dataset.day.toLowerCase();
+
+    toggleTask(dayName, taskEl.dataset.id);
+    renderTask(dayName, day);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!activeAddDay) return;
+
+    const input = activeAddDay.querySelector(".add-task-input input");
+    const dayName = activeAddDay.dataset.day.toLowerCase();
+
+    if (e.key === "Enter" && input.value.trim()) {
+      addTask(dayName, input.value.trim());
+      renderTask(dayName, activeAddDay);
+      closeAddMode(activeAddDay);
+    }
+
+    if (e.key === "Escape") {
+      closeAddMode(activeAddDay);
+    }
+  });
 };
 
 //looping through tasklist to add practicality to delete and checkbox
